@@ -12,6 +12,7 @@ dependencies:
     path: "D:/flutterprojects/patched_packages/share_plus/share_plus-6.3.4"
   flutter:
     sdk: flutter
+  path_provider: ^2.1.5
   # ✅ New dependencies for CSV logging and file storage
 
 

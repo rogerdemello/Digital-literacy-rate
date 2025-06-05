@@ -1,7 +1,9 @@
 import 'dart:io';
+
 import 'package:path_provider/path_provider.dart';
-import 'logger.dart';
+
 import '../models/user_data.dart';
+import 'logger.dart';
 
 class CSVExporter {
   static Future<String?> exportUserLogsToCSV(UserData userData) async {
@@ -16,7 +18,8 @@ class CSVExporter {
 
       if (!fileExists) {
         csvContent.writeln(
-            'Name,Age,DigitalExperience,DeviceUseFrequency,TypingErrors,TypingWPM,TapCount,SwipeCount,ScrollTaskDurationSeconds,Timestamp,Event');
+          'Name,Age,DigitalExperience,DeviceUseFrequency,TypingErrors,TypingWPM,TapCount,SwipeCount,ScrollTaskDurationSeconds,Timestamp,Event',
+        );
       }
 
       for (var log in logs) {
@@ -25,7 +28,8 @@ class CSVExporter {
           final timestamp = parts[0];
           final event = parts.sublist(1).join(' - ').replaceAll(',', '');
           csvContent.writeln(
-              '${_escape(userData.name)},${userData.age},${_escape(userData.digitalExperience)},${_escape(userData.deviceUseFrequency)},${userData.typingErrors},${userData.typingWPM},${userData.tapCount},${userData.swipeCount},${userData.scrollTaskDurationSeconds},$timestamp,$event');
+            '${_escape(userData.name)},${userData.age},${_escape(userData.digitalExperience)},${_escape(userData.deviceUseFrequency)},${userData.typingErrors},${userData.typingWPM},${userData.tapCount},${userData.swipeCount},${userData.scrollTaskDurationSeconds},$timestamp,$event',
+          );
         }
       }
 

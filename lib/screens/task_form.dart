@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TaskFormScreen extends StatefulWidget {
   final void Function(String name, int age) onComplete;
 
-  const TaskFormScreen({Key? key, required this.onComplete}) : super(key: key);
+  const TaskFormScreen({super.key, required this.onComplete});
 
   @override
   State<TaskFormScreen> createState() => _TaskFormScreenState();

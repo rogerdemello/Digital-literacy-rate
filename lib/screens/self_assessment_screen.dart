@@ -4,8 +4,7 @@ import '../models/user_data.dart';
 class SelfAssessmentScreen extends StatefulWidget {
   final void Function(UserData data) onComplete;
 
-  const SelfAssessmentScreen({Key? key, required this.onComplete})
-      : super(key: key);
+  const SelfAssessmentScreen({super.key, required this.onComplete});
 
   @override
   State<SelfAssessmentScreen> createState() => _SelfAssessmentScreenState();

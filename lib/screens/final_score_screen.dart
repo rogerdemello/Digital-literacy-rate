@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:flutter/services.dart'; // Added for SystemNavigator.pop
 import '../models/user_data.dart';
 import '../services/csv_exporter.dart';
 import '../services/logger.dart';
@@ -10,11 +11,11 @@ class FinalScoreScreen extends StatefulWidget {
   final VoidCallback onExit;
 
   const FinalScoreScreen({
-    Key? key,
+    super.key,
     required this.userData,
     required this.onRestart,
     required this.onExit,
-  }) : super(key: key);
+  });
 
   @override
   State<FinalScoreScreen> createState() => _FinalScoreScreenState();
@@ -44,8 +45,14 @@ class _FinalScoreScreenState extends State<FinalScoreScreen> {
       if (path != null) {
         _csvFilePath = path;
         _exportMessage = 'CSV exported successfully!';
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('CSV exported to: $path')),
+        );
       } else {
         _exportMessage = 'CSV export failed.';
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('CSV export failed.')),
+        );
       }
     });
   }
@@ -57,7 +64,14 @@ class _FinalScoreScreenState extends State<FinalScoreScreen> {
       setState(() {
         _exportMessage = 'Please export CSV first.';
       });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please export CSV first.')),
+      );
     }
+  }
+
+  void _exitApp() {
+    SystemNavigator.pop();
   }
 
   @override
@@ -140,7 +154,7 @@ class _FinalScoreScreenState extends State<FinalScoreScreen> {
                     ElevatedButton.icon(
                       icon: const Icon(Icons.exit_to_app),
                       label: const Text('Exit'),
-                      onPressed: widget.onExit,
+                      onPressed: _exitApp,
                     ),
                   ],
                 );

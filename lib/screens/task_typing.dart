@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TypingTaskScreen extends StatefulWidget {
   final void Function(int errors, int wpm) onComplete;
 
-  const TypingTaskScreen({Key? key, required this.onComplete}) : super(key: key);
+  const TypingTaskScreen({super.key, required this.onComplete});
 
   @override
   State<TypingTaskScreen> createState() => _TypingTaskScreenState();
