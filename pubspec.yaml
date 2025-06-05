@@ -10,7 +10,6 @@ environment:
 dependencies:
   share_plus:
     path: "D:/flutterprojects/patched_packages/share_plus/share_plus-6.3.4"
-  win32: ^3.1.4
   flutter:
     sdk: flutter
   # ✅ New dependencies for CSV logging and file storage
@@ -20,7 +19,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
