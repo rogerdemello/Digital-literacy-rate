@@ -139,5 +139,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## 🤝 Authors
 
-* [Your Name](https://github.com/your-username)
-* Project inspired by digital inclusion efforts worldwide
+* [Roger Demello](https://github.com/rogerdemello)
